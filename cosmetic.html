@@ -1,0 +1,1944 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- font awesome cdn link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <!-- swiper link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- gallery section link from cdnjs -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/css/lightgallery.min.css">
+
+     <link rel="stylesheet" href="style.css"/>
+    <title>Document</title>    
+    <style>
+        * {
+    font-family: "Poppins", sans-serif;
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    text-transform: capitalize;
+    text-decoration: none;
+    transition: all .2s linear;
+}
+:root{
+    --pink: #e84393;
+    --black: #222;
+    --white: #fff;
+    --light-bg:#f5f5f5;
+    --light-color: #777;
+    --border: .2rem solid var(--black);
+    --box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+ 
+}   
+
+ section{
+    padding: 5rem 9%;
+ }
+ .btn{
+    display: inline-block;
+    margin-top: 1rem;
+    border: var(--border);
+    background: var(--white);
+    padding: 1rem 3rem;
+    font-size: 1.7rem;
+    cursor: pointer;
+    color: var(--black);
+ }
+ .btn:hover{
+    color: var(--white);
+    background: var(--pink);
+ }
+    html{
+        font-size: 62.5%;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+        scroll-padding-top: 6rem;
+    }
+        html::-webkit-scrollbar{
+            width: 1rem;
+        }
+        html::-webkit-scrollbar-track{
+            background: transparent;
+        }
+        html::-webkit-scrollbar-thumb{
+            background: var(--pink);
+            border-radius: .5rem;
+        }
+
+.heading{
+    text-align: center;
+    margin-bottom: 4rem;
+}
+.heading h1{
+    font-size: 3.5rem;
+    color: var(--black);
+}
+.heading p{
+    margin: 1rem auto;
+    font-size: 1.5rem;
+    color: var(--light-color);
+    max-width: 50rem;
+    line-height: 2;
+}
+    @keyframes fadeUp {
+        0%{
+            transform: translateY(4rem);
+            opacity: 0;
+        }
+    }
+    .header{
+        padding: 1.5rem 9%;
+        background: var(--white);
+        box-shadow: var(--box-shadow);
+        display: flex;
+        align-items: center;
+        justify-content:space-between;
+        position: sticky;
+        top: 0; left: 0; right: 0;
+        z-index: 1000;
+    }
+    .header .logo img{
+        height: 6rem;
+    }
+    .header .logo h1{
+        color: var(--pink);
+        font-size: 3rem;
+        font-weight:lighter ;
+        margin-left: -2rem;   
+ 
+    }
+    .header .logo {
+        display: flex;
+        align-items: center;
+    }
+    .search-form{
+        width: 50rem;
+        height: 5rem;
+        border-radius: .5rem;
+        background: var(--light-bg);
+        display: flex;
+        align-items: center;
+        padding: 0 1.5rem;
+    }
+    .search-form input{
+        width: 100%;
+        background: none;
+        font-size: 1.6rem;
+        color: var(--light-color);
+        text-transform: none;
+    }
+    .search-form label{
+        font-size: 2rem;
+        margin-left: .7rem;
+        color: var(--black);
+        cursor: pointer;
+    }
+    label:hover{
+        color: var(--pink);
+    }
+
+    .icons a {
+        height: 4.5rem;
+        width: 4.5rem;
+        line-height: 4.5rem;
+        text-align: center;
+        background: var(--light-bg);
+        color: var(--black);
+        cursor: pointer;
+        font-size: 1.8rem;
+        margin-left: .3rem;
+        border-radius: .5rem;
+    }
+    .icons div{
+        height: 4.5rem;
+        width: 4.5rem;
+        line-height: 4.5rem;
+        text-align: center;
+        background: var(--light-bg);
+        color: var(--black);
+        cursor: pointer;
+        font-size: 1.8rem;
+        margin-left: .3rem;
+        border-radius: .5rem;
+
+    }
+        .icons a:hover {
+        background-color: var(--pink);
+        color: var(--white);
+    }
+    .icons div:hover {
+        background-color: var(--pink);
+        color: var(--white);
+    }
+    #search-btn{
+        display: none;
+    }
+    /* navbar CSS */
+    .navbar{
+        position: fixed;
+        top: 0; right: 110%;
+        z-index: 1010;
+        height: 100%;
+        width: 100%;
+        background:url('../images/navgirl.jpg') no-repeat;
+        background-position:center ;
+        background-size: cover;
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-flow: column;
+        align-items: flex-end;
+        padding-right: 15%;
+    }
+    .navbar.active{
+        right: 0;
+    }
+    #close-navbar{
+        position: absolute;
+        top: 3rem;
+        right: 3rem;
+        height: 5rem;
+        width: 5rem;
+        line-height: 5rem;
+        text-align: center;
+        background: var(--white);
+        color: var(--black);
+        cursor: pointer;
+        font-size: 3rem;
+    }
+    #close-navbar:hover{
+        color: var(--white);
+        background: var(--pink);
+    }
+    .navbar a{
+        font-family:sans-serif;
+        margin: .2rem 0;
+        text-transform: uppercase;
+        font-size: 4rem;
+        color: var(--white);
+        font-weight:lighter;
+    }
+    .navbar a:hover{
+        color: var(--pink);
+        letter-spacing: .2rem;
+    }
+
+/* home CSS */
+.home .img{
+    border-radius: 50%;
+}
+
+.home{
+    padding: 0;
+}
+.home .slide{
+    display: none;
+    height: calc(100vh - 7rem);
+}
+.home .slide.active{
+    display: flex;
+}
+.home .slide .content{
+    width: 50%;
+    padding: 2rem 7%;
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    align-items: flex-start;
+    background: #fce9f2;
+    position: relative;
+}
+.home .slide .content span{
+    color: var(--pink);
+    display: block;
+    font-size: 2.5rem;
+    padding-bottom: .5rem;
+    letter-spacing: .2rem;
+    text-transform: uppercase;
+    animation: fadeUp .2s linear backwards .4s;
+}
+.home .slide .content h3{
+    font-size: 5.5rem;
+    text-transform: uppercase;
+    color: var(--black);
+    animation: fadeUp .2s linear backwards .6s;
+}
+.home .slide .content img{
+     height: 25rem;
+     width: 25rem;
+     margin-bottom: 2rem;
+     animation: fadeUp .2s linear backwards .2s;
+     display: none;
+}
+
+.home .slide .image{
+    width: 50%;
+    height: 100%;
+}
+.home .slide .image img{
+height: 100%;
+width: 100%;
+object-fit: cover;
+}
+.home .slide .content .btn{
+    animation: fadeUp .2s linear backwards .8s;
+}
+
+.home .slide .content .controls{
+    position: absolute;
+    bottom: 5%; right: -7rem;
+    
+}
+.home .slide .content .controls div{
+height: 5rem;
+width: 5rem;
+line-height: 5rem;
+font-size: 3rem;
+background: var(--white);
+color: var(--black);
+text-align: center;
+margin: 0 1rem;
+box-shadow: var(--box-shadow);
+cursor: pointer;
+}
+.home .slide .content .controls div:hover{
+    background: var(--pink);
+    color: var(--white);
+    transform: scale(1.1);
+}
+
+/* category css */
+
+.category{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 1rem;
+}
+.category .box{
+    padding: 2rem;
+    border-radius: .5rem;
+    border: var(--border);
+    text-align: center;
+    
+}
+
+.category .box img{
+    height: 10rem;
+    margin-bottom: 1rem;
+}
+.category .box:hover{
+    img{
+
+        transform: scale(1.4);
+    }
+    p{
+        color: var(--pink);
+    }
+}
+
+.category .box p{
+    padding-top: 1rem;
+    font-size: 1.7rem;
+    color: var(--black);
+}
+
+/* about CSS */
+.about{
+background:url('../images/about.girl.webp')no-repeat;
+background-size: cover;
+background-position: center;
+background-attachment: fixed;
+display: flex;
+align-items: center;
+}
+.about .content{
+    width: 55rem;
+    background: var(--white);
+    padding: 3rem;
+}
+
+.about .content span{
+    color: var(--pink);
+    font-size: 2rem;
+}
+.about .content h3{
+    font-size: 3rem;
+    padding-top: 1rem;
+    color: var(--black);
+}
+.about .content p{
+    font-size: 1.5rem;
+    color: var(--light-color);
+    line-height: 2;
+    padding: 1rem 0;
+}
+
+/* shop CSS */
+.shop .slide{
+    background: var(--white);
+    border: var(--border);
+}
+
+.shop .slide .image{
+    height: 35rem;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    
+}
+
+.shop .slide .image .discount{
+    position: absolute;
+    top:1rem ; left:1rem ;
+    padding: .5rem 1.5rem;
+    font-size: 1.5rem;
+    color: var(--white);
+    background: var(--pink);
+    z-index: 10;
+}
+
+.shop .slide img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.shop .slide img:hover{
+transform: scale(1.1);
+}
+
+.shop .slide .icons{
+    position: absolute;
+    bottom: 0; right: -8rem;
+}
+
+.shop .slide .image:hover{
+    .icons{
+        right: 1rem;
+    }
+}
+.shop .slide .icons a{
+    height: 5rem;
+    width: 5rem;
+    line-height: 4.5rem;
+    font-size: 2rem;
+    background: var(--white);
+    counter-reset: var(--black);
+    border: var(--border);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 1rem;
+    text-align: center;
+    display: block;
+}
+
+.shop .slide .icons a:hover{
+    background: var(--pink);
+    color: var(--white);
+}
+
+.slide .content{
+    border-top: var(--border);
+    padding: 2rem;
+}
+
+.slide .content .stars{
+    padding-bottom: .5rem ;
+}
+
+.slide .content .stars i{
+    font-size: 1.5rem;
+    color: var(--light-color);
+}
+
+.slide .content p{
+    font-size: 2rem;
+    color: var(--black);
+    line-height: 2;
+}
+
+.slide .content .price{
+    font-size: 2rem;
+    color: var(--pink);
+}
+
+.slide .content .price span{
+    font-size: 1.5rem;
+    color: var(--light-color);
+    text-decoration: line-through;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after{
+    font-size: 2rem;
+    color: var(--pink);
+}
+
+/* gallery CSS */
+.gallery{
+    background: var(--light-bg);
+}
+.gallery .lightbox{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(31rem, 1fr));
+    gap: 1rem;
+}
+
+.gallery .lightbox a{
+    height: 30rem;
+    overflow: hidden;
+    border: 1rem solid var(--white);
+    box-shadow: var(--box-shadow);
+}
+
+.gallery .lightbox a img:hover{
+    transform: scale(1.1);
+}
+
+.gallery .lightbox a img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+/* team CSS */
+.team{
+    background: linear-gradient(var(--light-bg 50%, var(--white 50.1%)));
+}
+
+.team .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(31rem, 1fr));
+    gap: 1rem;
+}
+.team .box-container .box{
+    border: var(--border);
+    text-align: center;
+}
+
+.team .box-container .box .image{
+    height: 50rem;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.team .box-container .box .image img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.team .box-container .box .image:hover{
+img{
+    transform: scale(1.1);
+}
+    .share{
+        left: 0;
+    }
+}
+
+.team .box-container .share{
+    position: absolute;
+    top: 0; left: -8rem;
+    background: var(--black);
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    padding: 0 1rem;
+    gap: 1rem;
+}
+
+.team .box-container .share a{
+height: 5rem;
+width: 5rem;
+border: .2rem solid var(--white);
+font-size: 2.5rem;
+color: var(--white);
+line-height: 5rem;
+}
+
+.team .box-container .share a:hover{
+    color: var(--black);
+    background: var(--white);
+}
+
+.team .box-container .content{
+    border-top: var(--border);
+    padding: 1.5rem;
+}
+
+.team .box-container .content h3{
+font-size: 2rem;
+color: var(--black);
+}
+
+.team .box-container .content p{
+font-size: 1.5rem;
+color: var(--pink);
+}
+
+/* arrival CSS */
+.arrivals .slide{
+    text-align: center;
+    background: var(--white);
+}
+.arrivals .slide .image{
+    height: 30rem;
+    width: 100%;
+    overflow: hidden;
+}
+
+.arrivals .slide .image img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.arrivals .slide .image img:hover{
+    transform: scale(1.1);
+}
+
+.arrivals .slide .content{
+    padding-top: .5rem;
+}
+
+.arrivals .slide .content p{
+    font-size: 2rem;
+    color: var(--black);
+    line-height: 2;
+    padding: .5rem 0;
+}
+
+.arrivals .slide .content .price{
+    font-size: 2rem;
+    color: var(--pink);
+}
+
+.arrivals .slide .content .price span{
+    font-size: 1.5rem;
+    text-decoration: line-through;
+    color: var(--light-color);
+}
+
+/* review CSS */
+.review-slider .slide .user{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.review-slider .slide .user img{
+    height: 7rem;
+    width: 7rem;
+    border-radius: 50%;
+}
+
+.review-slider .slide .info h3{
+    font-size: 2rem;
+    color: var(--black);
+}
+
+.review-slider .slide .info .stars i{
+    font-size: 1.5rem;
+    color: var(--pink);
+}
+
+.review-slider .slide p{
+    padding: 2rem;
+    background: var(--light-bg);
+    border-radius: .5rem;
+    line-height: 2;
+    font-size: 1.5rem;
+    color: var(--light-color);
+    position: relative;
+    margin-top: 2rem;
+}
+
+/* .review-slider .slide .info::before{
+    content: '';
+    position: absolute;
+    top: -1rem; left: 3rem;
+    height: 2rem;
+    width: 2rem;
+    background: var(--pink);
+    transform: rotate(45deg);
+} */
+
+.service{
+    background: var(--light-bg);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(31rem, 1fr));
+    gap: 1rem;
+}
+
+.service .box{
+    border: var(--border);
+    padding: 2rem;
+    text-align: center;
+    background: var(--white);
+}
+
+.service .box img{
+    height: 8rem;
+    margin-bottom: .5rem;
+}
+
+.service .box h3{
+    padding: .7rem 0;
+    font-size: 2rem;
+    color: var(--black);
+}
+
+.service .box p{
+    font-size: 1.5rem;
+    color: var(--light-color);
+    line-height: 1.5;
+}
+
+.service .box:hover{
+    background: var(--black);
+    img{
+        filter: invert(1);
+    }
+    h3{
+        color: var(--white);
+    }
+    p{
+        color: var(--white);
+    }
+}
+
+/* blog CSS */
+.blogs .slide .image:hover{
+img{
+    transform: scale(1.1);
+}
+.icons{
+    transform: translateY(0);
+}
+}
+.blogs .slide .image{
+    height: 33rem;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+.blogs .slide .image img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.blogs .slide .image .icons{
+    transform: translateY(10rem);
+    background: var(--white);
+    height: 5rem;
+    position: absolute;
+    bottom: 0; left: 0; right:0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem;
+    border: var(--border);
+    z-index: 10;
+}
+.blogs .slide .image .icons a{
+    background: var(--white);
+    width: 100%;
+
+    font-size: 1.5rem;
+    color: var(--black);
+}
+.blogs .slide .image .icons a:hover{
+    color: var(--pink);
+}
+.blogs .slide .image .icons i{
+padding-right: .5rem; 
+color: var(--pink);
+}
+.blogs .slide .image .icons i:hover{
+    color: var(--pink);
+}
+
+.blogs .slide .content{
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.blogs .slide .content h3{
+    font-size: 2rem;
+    color: var(--black);
+}
+
+.blogs .slide .content p{
+    padding: 1rem 0;
+    line-height: 2;
+    color: var(--light-color);
+    font-size: 1.5rem;
+}
+
+/* footer CSS */
+.footer{
+    background: var(--light-bg);
+}
+.footer .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 1rem;
+
+}
+.footer .box-container .box h3{
+    font-size: 2.2rem;
+    color: var(--black);
+    padding: 1rem 0;
+}
+
+.footer .box-container .box .links {
+    padding: 1rem 0;
+    display: block;
+    font-size: 1.5rem;
+    color: var(--light-color);
+}
+.footer .box-container .box .links i{
+    padding-right: .5rem;
+    color: var(--pink);
+
+}
+
+.footer .box-container .box .links:hover{
+    color: var(--pink);
+    i{
+        padding-right: 2rem;
+    }
+}
+
+.footer .box-container .box p{
+    font-size: 1.5rem;
+    color: var(--light-color);
+    padding: 1rem 0;
+i{
+    padding-right: .5rem;
+    color: var(--pink);
+
+}
+}
+
+.footer .box-container .box .share{
+    margin-top: 2rem;
+}
+
+.footer .box-container .box .share a{
+    border-radius: .5rem;
+    height: 5rem;
+    width: 5rem;
+    text-align: center;
+    background: transparent;
+    color: var(--black);
+    border: var(--border);
+    font-size: 2rem;
+    line-height: 4.5rem;
+    margin-right: .3rem;
+}
+
+.footer .box-container .box .share a:hover{
+    background: var(--pink);
+    color: var(--white);
+}
+
+.footer .box-container form .email{
+    width: 100%;
+    border: var(--border);
+    padding: 1.2rem 1.4rem;
+    font-size: 1.6rem;
+    color: var(--light-color);
+    text-transform: none;
+        margin: 1rem 0;
+
+}
+
+.credit{
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: var(--border);
+    color: var(--light-color);
+    text-align: center;
+    font-size: 2rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @media (max-width:991px){
+        html{
+            font-size: 55%;
+        }
+        .header{
+            padding: 1.5rem 2rem;
+        }
+        section{
+    padding: 3rem 2rem;
+ }
+.home .slide .content{
+    padding: 2rem;
+}
+.home .slide .content span{
+font-size: 2rem;
+}
+.home .slide .content h3{
+font-size: 4rem;
+}
+
+    }
+    
+    @media (max-width:768px){
+            #search-btn{
+                display: inline-block;
+             
+            }
+            .search-form{
+                position: absolute;
+                top: 99%; left: 0;
+                background: var(--white);
+                width: 100%;
+                height: 6rem;
+                border-top: var(--border);
+                border-bottom: var(--border);
+                display: none;
+                animation:fadeUp .2s linear backwards;
+            }
+            .search-form.active{
+                display:flex;
+            }
+
+            .home .slide{
+                position: relative;
+                height: calc(100vh - 6rem);
+            }
+            .home .slide .content{
+                position: absolute;
+                top: 0; left: 0;
+                width: 100%;
+                background: rgba(225, 225, 225, .7);
+                height: 100%;
+                align-items: center;
+            }
+            .home .slide .content img{
+                display: inline-block;
+            }
+            .home .slide .image{
+                width: 100%;
+            }
+            .home .slide .content .controls{
+                position: static;
+                margin-top: 7rem;
+            }
+            .home .slide .content .controls div{
+                margin: 0 .5rem;
+            }
+            .swiper-button-next,
+        .swiper-button-prev{
+        display: none;
+}
+        }
+      
+
+    @media (max-width:450px){
+        html{
+            font-size: 50%;
+        }
+        .footer{
+            text-align: center;
+        }
+        .category{
+             grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+        }
+    }
+
+    </style>
+</head>
+
+<body>
+<!-- header section starts -->
+<header class="header">
+    <a href="#home" class="logo"><img src="https://s.tmimgcdn.com/scr/800x500/354400/cute-black-girl-logo-design_354496-original.jpg" alt=""><h1>GIRLY</h1></a>
+
+    <form action="" class="search-form">
+        <input type="search" placeholder="search here" id="search-box">
+        <label for="search-box" class="fas fa-search"></label>
+    </form>
+
+    <div class="icons">
+        <div id="menu-btn" class="fas fa-bars"></div>
+        <div id="search-btn" class="fas fa-search"></div>
+        <a href="#" class="fas fa-heart"></a>
+        <a href="#" class="fas fa-shopping-cart"></a>
+    </div>
+</header>
+<!-- header section ends -->
+<!-- navbar section starts -->
+<nav class="navbar">
+    <div id="close-navbar" class="fas fa-times"></div>
+    <a href="#home">home</a>
+    <a href="#shop">shop</a>
+    <a href="#gallery">gallery</a>
+    <a href="#team">team</a>
+    <a href="#arrivals">arrivals</a>
+    <a href="#blogs">blogs</a>
+</nav>
+<!-- navbar section ends -->
+<!-- home section starts -->
+<section class="home" id="home">
+<div class="slide active">
+    <div class="content">
+        <img src="https://media.istockphoto.com/id/1331637318/photo/portrait-of-young-afro-woman-with-bright-make-up.jpg?s=612x612&w=0&k=20&c=F6PSgaagZEabgAfTvxE78YPhKtK-5a8yYoA_oSbGNMM=" alt="" class="img">
+        <span>new arrivals 2024</span>
+        <h3>cosmetics</h3>
+        <a href="#" class="btn">read more</a>
+        <div class="controls">
+            <div class="fas fa-angle-left" onclick="prev()"></div>
+            <div class="fas fa-angle-right" onclick="next()"></div>
+        </div>
+    </div>
+    <div class="image">
+        <img src="https://media.istockphoto.com/id/1331637318/photo/portrait-of-young-afro-woman-with-bright-make-up.jpg?s=612x612&w=0&k=20&c=F6PSgaagZEabgAfTvxE78YPhKtK-5a8yYoA_oSbGNMM=" alt="">
+    </div>
+</div>
+
+<div class="slide">
+    <div class="content">
+        <img src="https://n.nordstrommedia.com/it/c245051a-9fc8-40fa-99bb-ffae3f21e0ab.jpeg?h=600&w=750" alt="" class="img">
+        <span>new arrivals 2024</span>
+        <h3>accessories</h3>
+        <a href="#" class="btn">read more</a>
+        <div class="controls">
+            <div class="fas fa-angle-left" onclick="prev()"></div>
+            <div class="fas fa-angle-right" onclick="next()"></div>
+        </div>
+    </div>
+    <div class="image">
+        <img src="https://n.nordstrommedia.com/it/c245051a-9fc8-40fa-99bb-ffae3f21e0ab.jpeg?h=600&w=750" alt="">
+    </div>
+</div>
+
+<div class="slide">
+    <div class="content">
+        <img src="https://png.pngtree.com/thumb_back/fw800/background/20240208/pngtree-african-beauty-care-girl-image_15624059.jpg" alt="" class="img">
+        <span>new collections</span>
+        <h3>skin care</h3>
+        <a href="#" class="btn">read more</a>
+        <div class="controls">
+            <div class="fas fa-angle-left" onclick="prev()"></div>
+            <div class="fas fa-angle-right" onclick="next()"></div>
+        </div>
+    </div>
+    <div class="image">
+        <img src="https://png.pngtree.com/thumb_back/fw800/background/20240208/pngtree-african-beauty-care-girl-image_15624059.jpg" alt="">
+    </div>
+</div>
+</section>
+ <!-- home section ends -->
+<!-- category section starts -->
+ <section class="category">
+        
+     <a href="#" class="box">
+        <img src="https://www.makeupcityshop.com/cdn/shop/products/st-london---colorist-nail-paint---st006---vamp-red_grande.jpg?v=1657023707" alt="">
+        <p>nailpaint</p>
+    </a>
+        
+    <a href="#" class="box">
+        <img src="https://static.vecteezy.com/system/resources/previews/047/829/218/non_2x/makeup-kit-bag-with-brushes-on-transparent-background-png.png" alt="">
+        <p>cosmetics</p>
+    </a>
+
+    <a href="#" class="box">
+        <img src="https://pngimg.com/d/face_powder_PNG76411.png" alt="">
+        <p>powder</p>
+    </a>
+
+    <a href="#" class="box">
+        <img src="https://static.vecteezy.com/system/resources/thumbnails/045/617/890/small/a-jar-of-cream-is-open-and-half-full-png.png" alt="">
+        <p>lotions</p>
+    </a>
+
+    <a href="#" class="box">
+        <img src="https://png.pngtree.com/png-clipart/20250613/original/pngtree-red-lipstick-realistic-cosmetic-product-png-image_21189480.png" alt="">
+        <p>lipstick</p>
+    </a>
+
+    <a href="#" class="box">
+        <img src="https://pngimg.com/d/mascara_PNG40.png" alt="">
+        <p>mascara</p>
+    </a>
+    </section>
+<!-- category section ends -->/
+
+<!-- about section starts -->
+<section class="about" id="about">
+<div class="content">
+    <span>why choose us?</span>
+    <h3>makeup makes difference</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ex impedit corrupti maxime ipsa pariatur minima numquam. Quibusdam, ab ea tempora nesciunt, quia ipsa repellendus modi ipsam magni atque eum?</p>
+    <a href="#" class="btn">read more</a>
+</div>
+</section>
+<!-- about section ends -->
+<!-- shop section starts -->
+
+<section class="shop" id="shop">
+<div class="heading">
+    <h1>featured products</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio nulla vitae doloribus.</p>
+</div>
+<div class="swiper product-slider">
+    <div class="swiper-wrapper">
+        <div class="slide swiper-slide">
+            <div class="image">
+                <span class="discount">-25%</span>
+                <img src="https://elyvorabeauty.com/cdn/shop/files/Generated_Image_September_30_2025_-_12_31PM.png?v=1759829721&width=1500" alt="">
+                <div class="icons">
+                    <a href="#" class="fas fa-shopping-cart"></a>
+                    <a href="#" class="fas fa-heart"></a>
+                    <a href="#" class="fas fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <p>beauty products</p>
+                <div class="price">$49.99/- <span>79.99/-</span></div>
+            </div>
+        </div>
+        
+        <div class="slide swiper-slide">
+            <div class="image">
+                <img src="https://kblcosmetics.com/cdn/shop/articles/d4c6d1ae7c4f5ad9fdccda382614f183_large.jpg?v=1722281582" alt="">
+                <span class="discount">-25%</span>
+                <div class="icons">
+                    <a href="#" class="fas fa-shopping-cart"></a>
+                    <a href="#" class="fas fa-heart"></a>
+                    <a href="#" class="fas fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <p>beauty products</p>
+                <div class="price">$49.99/- <span>79.99/-</span></div>
+            </div>
+        </div>
+
+        <div class="slide swiper-slide">
+            <div class="image">
+                <span class="discount">-25%</span>
+                <img src="https://media.istockphoto.com/id/468112252/photo/green-eyed-beautiful-model-applying-foundation-with-a-brush.jpg?s=612x612&w=0&k=20&c=B2yVJ-JCvUAez3RJfZ6JsWAU7uQXMl7_oLtIgjHZu7c=" alt="">
+                <div class="icons">
+                    <a href="#" class="fas fa-shopping-cart"></a>
+                    <a href="#" class="fas fa-heart"></a>
+                    <a href="#" class="fas fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <p>beauty products</p>
+                <div class="price">$49.99/- <span>79.99/-</span></div>
+            </div>
+        </div>
+
+        <div class="slide swiper-slide">
+            <div class="image">
+                <span class="discount">-25%</span>
+                <img src="https://i.pinimg.com/736x/cd/9c/3a/cd9c3ae8538e61bd1c8b84fa53406eba.jpg" alt="">
+                <div class="icons">
+                    <a href="#" class="fas fa-shopping-cart"></a>
+                    <a href="#" class="fas fa-heart"></a>
+                    <a href="#" class="fas fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>=
+                <p>beauty products</p>
+                <div class="price">$49.99/- <span>79.99/-</span></div>
+            </div>
+        </div>
+
+        <div class="slide swiper-slide">
+            <div class="image">
+                <span class="discount">-25%</span>
+                <img src="https://images.squarespace-cdn.com/content/v1/5e97e9c588b473135ac010eb/2128cf53-71c0-461e-8707-8da99fa62bfe/tint2.png?format=1000w" alt="">
+                <div class="icons">
+                    <a href="#" class="fas fa-shopping-cart"></a>
+                    <a href="#" class="fas fa-heart"></a>
+                    <a href="#" class="fas fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <p>beauty products</p>
+                <div class="price">$49.99/- <span>79.99/-</span></div>
+            </div>
+        </div>
+
+        <div class="slide swiper-slide">
+            <div class="image">
+                <span class="discount">-25%</span>
+                <img src="https://www.kikocosmetics.com/_next/image?url=https%3A%2F%2Fassets.joqhl8w6.on-eva.io%2Fblob%2Fe72bb590-b14c-3681-458d-b241cef73fa1&q=80&w=3840&av=v1" alt="">
+                <div class="icons">
+                    <a href="#" class="fas fa-shopping-cart"></a>
+                    <a href="#" class="fas fa-heart"></a>
+                    <a href="#" class="fas fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <p>beauty products</p>
+                <div class="price">$49.99/- <span>79.99/-</span></div>
+            </div>
+        </div>
+
+        <div class="slide swiper-slide">
+            <div class="image">
+                <span class="discount">-25%</span>
+                <img src="" alt="">
+                <div class="icons">
+                    <a href="#" class="fas fa-shopping-cart"></a>
+                    <a href="#" class="fas fa-heart"></a>
+                    <a href="#" class="fas fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <p>beauty products</p>
+                <div class="price">$49.99/- <span>79.99/-</span></div>
+            </div>
+        </div>
+
+        <div class="slide swiper-slide">
+            <div class="image">
+                <span class="discount">-25%</span>
+                <img src="" alt="">
+                <div class="icons">
+                    <a href="#" class="fas fa-shopping-cart"></a>
+                    <a href="#" class="fas fa-heart"></a>
+                    <a href="#" class="fas fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <p>beauty products</p>
+                <div class="price">$49.99/- <span>79.99/-</span></div>
+            </div>
+        </div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+</div>
+</section>
+<!-- shop section ends -->
+<!-- gallery section starts -->
+<section class="gallery" id="gallery">
+    <div class="heading">
+        <h1>our gallery</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio nulla vitae doloribus.</p>
+    </div>
+<div class="lightbox">
+    <a href="../images/gallery.jpg"><img src="https://png.pngtree.com/png-clipart/20240812/original/pngtree-a-girl-is-using-serum-on-her-face-png-image_15756578.png" alt=""></a>
+    <a href="../images/gallery1.jpg"><img src="https://png.pngtree.com/png-clipart/20240210/original/pngtree-woman-from-side-tying-her-hair-ponytail-photo-png-image_14284226.png" alt=""></a>
+    <a href="../images/gallery2.webp"><img src="https://static.vecteezy.com/system/resources/previews/039/351/642/non_2x/ai-generated-beautiful-freckled-girl-with-healthy-skin-applying-face-serum-on-her-cheek-from-dropper-take-care-after-skin-condition-against-white-background-skin-care-cosmetology-natural-beauty-photo.jpg" alt=""></a>
+    <a href="../images/gallery3.jpg"><img src="https://htv.com.pk/wp-content/uploads/blush-1-580x580.png" alt=""></a>
+    <a href="../images/gallery4.jpg"><img src="https://static.vecteezy.com/system/resources/thumbnails/067/215/444/small/young-woman-applying-red-lipstick-with-precision-against-transparent-background-for-beauty-branding-makeup-promotions-or-cosmetics-themed-graphics-free-png.png" alt=""></a>
+    <a href="../images/gallery5.jpg"><img src="https://static.vecteezy.com/system/resources/thumbnails/044/245/462/small/beautiful-woman-showcasing-skincare-cream-on-her-face-png.png" alt=""></a>
+</div>    
+
+
+
+
+</section>
+<!-- gallery section ends -->
+ <!-- team section starts -->
+  <section class="team" id="team">
+      <div class="heading">
+          <h1>our team</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio nulla vitae doloribus.</p>
+        </div>
+        <div class="box-container">
+            <div class="box">
+                <div class="image">
+                    <img src="https://thumbs.dreamstime.com/b/half-length-portrait-female-business-man-hands-crossed-woman-isolated-white-background-concept-leadership-success-33914478.jpg" alt="">
+                    <div class="share">
+                        <a href="#" class="fab fa-facebook-f"></a>
+                        <a href="#" class="fab fa-twitter"></a>
+                        <a href="#" class="fab fa-whatsapp"></a>
+                        <a href="#" class="fab fa-instagram"></a>
+                    </div>
+                </div>
+                <div class="content">
+                    <h3>sana sheikh</h3>
+                    <p>makeup artist</p>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="image">
+                    <img src="https://thumbs.dreamstime.com/b/half-length-portrait-businesswoman-hands-crossed-isolated-white-concept-leadership-success-33920247.jpg" alt="">
+                    <div class="share">
+                        <a href="#" class="fab fa-facebook-f"></a>
+                        <a href="#" class="fab fa-twitter"></a>
+                        <a href="#" class="fab fa-whatsapp"></a>
+                        <a href="#" class="fab fa-instagram"></a>
+                    </div>
+                </div>
+                <div class="content">
+                    <h3>nicki minaj</h3>
+                    <p>cosmetologist</p>
+                </div>
+            </div>
+
+    <div class="box">
+                <div class="image">
+                    <img src="https://accralaw.com/wp-content/uploads/2023/07/CRR_1-copy-2.png" alt="">
+                    <div class="share">
+                        <a href="#" class="fab fa-facebook-f"></a>
+                        <a href="#" class="fab fa-twitter"></a>
+                        <a href="#" class="fab fa-whatsapp"></a>
+                        <a href="#" class="fab fa-instagram"></a>
+                    </div>
+                </div>
+                <div class="content">
+                    <h3>nicki minaj</h3>
+                    <p>cosmetologist</p>
+                </div>
+            </div>
+
+
+            <div class="box">
+                <div class="image">
+                    <img src="https://media.istockphoto.com/id/1129612115/photo/woman-posing-on-white-background.jpg?s=612x612&w=0&k=20&c=wcRF3uuKpvE8USeHqwIYnb7rUt3s1zHQ0PDM2qqYSZo=" alt="">
+                    <div class="share">
+                        <a href="#" class="fab fa-facebook-f"></a>
+                        <a href="#" class="fab fa-twitter"></a>
+                        <a href="#" class="fab fa-whatsapp"></a>
+                        <a href="#" class="fab fa-instagram"></a>
+                    </div>
+                </div>
+                <div class="content">
+                    <h3>ariana grande</h3>
+                    <p>hair stylist</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- team section ends -->
+
+<!-- arrival section starts -->
+<section class="arrivals" id="arrivals">
+    <div class="heading">
+        <h1>our arrivals</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio nulla vitae doloribus.</p>
+      </div>
+<div class="swiper arrival-slider">
+    <div class="swiper-wrapper">
+        <div class="slide swiper-slide">
+            <div class="image">
+                <img src="https://media.istockphoto.com/id/1320475512/photo/beautiful-lipstick-on-beige-background-professional-makeup-product.jpg?s=612x612&w=0&k=20&c=NgpEMJ6wYODEBo8cr6ft7uE-Ldf9yWc9TPhJclzn9e8=" alt="">
+            </div>
+            <div class="content">
+                <p>beauty products</p>
+                <div class="price">$49.99/- <span>$79.99/-</span></div>
+                <a href="#" class="btn">add to cart</a>
+            </div>
+        </div>
+
+        <div class="slide swiper-slide">
+            <div class="image">
+                <img src="https://pk.hemaniherbals.com/images/thumbs/0012862_pore-perfect-face-serum-30ml_550.png" alt="">
+            </div>
+            <div class="content">
+                <p>beauty products</p>
+                <div class="price">$49.99/- <span>$79.99/-</span></div>
+                <a href="#" class="btn">add to cart</a>
+            </div>
+        </div>
+
+        <div class="slide swiper-slide">
+            <div class="image">
+                <img src="https://redapplelipstick.com/cdn/shop/files/pixie-dust-hypoallergenic-eyeshadow.jpg?v=1761931272" alt="">
+            </div>
+            <div class="content">
+                <p>beauty products</p>
+                <div class="price">$49.99/- <span>$79.99/-</span></div>
+                <a href="#" class="btn">add to cart</a>
+            </div>
+        </div>
+
+        <div class="slide swiper-slide">
+            <div class="image">
+                <img src="https://opiofragrances.pk/cdn/shop/files/DSCF3532-3-scaled.jpg?v=1720618115" alt="">
+            </div>
+            <div class="content">
+                <p>beauty products</p>
+                <div class="price">$49.99/- <span>$79.99/-</span></div>
+                <a href="#" class="btn">add to cart</a>
+            </div>
+        </div>
+
+        <div class="slide swiper-slide">
+            <div class="image">
+                <img src="https://www.shutterstock.com/image-photo/stacked-makeup-sponges-foundation-pouring-600nw-2539339691.jpg" alt="">
+            </div>
+            <div class="content">
+                <p>beauty products</p>
+                <div class="price">$49.99/- <span>$79.99/-</span></div>
+                <a href="#" class="btn">add to cart</a>
+            </div>
+        </div>
+
+        <div class="slide swiper-slide">
+            <div class="image">
+                <img src="https://png.pngtree.com/thumb_back/fw800/background/20251217/pngtree-elegant-pink-mascara-and-eyeliner-set-on-a-soft-background-symbolizing-image_20848861.webp" alt="">
+            </div>
+            <div class="content">
+                <p>beauty products</p>
+                <div class="price">$49.99/- <span>$79.99/-</span></div>
+                <a href="#" class="btn">add to cart</a>
+            </div>
+        </div>
+
+        <div class="slide swiper-slide">
+            <div class="image">
+                <img src="https://image.made-in-china.com/2f0j00HbdhAmwfiMUy/Wholesale-3-PCS-Travel-Powder-Blush-Foundation-Makeup-Brush-Set-Cosmetics-Brushes.jpg" alt="">
+            </div>
+            <div class="content">
+                <p>beauty products</p>
+                <div class="price">$49.99/- <span>$79.99/-</span></div>
+                <a href="#" class="btn">add to cart</a>
+            </div>
+        </div>
+
+        <div class="slide swiper-slide">
+            <div class="image">
+                <img src="https://www.organicpromise.pk/cdn/shop/files/Lip-and-Cheek-Tint-Product.jpg?v=1709206964" alt="">
+            </div>
+            <div class="content">
+                <p>beauty products</p>
+                <div class="price">$49.99/- <span>$79.99/-</span></div>
+                <a href="#" class="btn">add to cart</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+
+</div>
+</section>
+<!-- arrival section ends -->
+<!-- review section starts -->
+ <section class="reviews" id="reviews">
+    <div class="heading">
+        <h1>our reviews</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio nulla vitae doloribus.</p>
+      </div>
+<div class="swiper review-slider">
+    <div class="swiper-wrapper">
+        <div class="slide swiper-slide">
+            <div class="user">
+                <img src="https://png.pngtree.com/png-vector/20240528/ourmid/pngtree-front-view-of-a-smiling-business-woman-png-image_12509704.png" alt="">
+                <div class="info">
+                    <h3>Valentina Ava</h3>
+                    <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+            <p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta, est quas velit ipsum possimus deserunt cum. Dolorem provident nisi facilis quas velit ipsum possimus deserunt cum. Dolorem provident nisi facilis.</p>
+        </div>
+            <div class="slide swiper-slide">
+                <div class="user">
+                    <img src="https://png.pngtree.com/png-vector/20240413/ourmid/pngtree-a-woman-in-tan-suit-stands-front-of-white-background-png-image_11946663.png" alt="">
+                    <div class="info">
+                        <h3>Scarlett Lyra</h3>
+                        <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+                <p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta, est quas velit ipsum possimus deserunt cum. Dolorem provident nisi facilis quas velit ipsum possimus deserunt cum. Dolorem provident nisi facilis.</p>
+            </div>
+                <div class="slide swiper-slide">
+                    <div class="user">
+                        <img src="https://img.freepik.com/free-photo/young-smiling-businesswoman_329181-11700.jpg?semt=ais_hybrid&w=740&q=80" alt="">
+                        <div class="info">
+                            <h3>Isabella Aurora</h3>
+                            <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>  
+                    </div>
+                    <p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta, est quas velit ipsum possimus deserunt cum. Dolorem provident nisi facilis quas velit ipsum possimus deserunt cum. Dolorem provident nisi facilis.</p>
+                </div>
+                    <div class="slide swiper-slide">
+                        <div class="user">
+                            <img src="../images/review3.png" alt="">
+                            <div class="info">
+                                <h3>imran abbas</h3>
+                                <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta, est quas velit ipsum possimus deserunt cum. Dolorem provident nisi facilis quas velit ipsum possimus deserunt cum. Dolorem provident nisi facilis.</p>
+                    </div>
+                        <div class="slide swiper-slide">
+                            <div class="user">
+                                <img src="../images/review4.jpg" alt="">
+                                <div class="info">
+                                    <h3>pretty zienta</h3>
+                                    <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta, est quas velit ipsum possimus deserunt cum. Dolorem provident nisi facilis quas velit ipsum possimus deserunt cum. Dolorem provident nisi facilis.</p>
+                        </div>
+                            <div class="slide swiper-slide">
+                                <div class="user">
+                                    <img src="../images/review5.jpg" alt="">
+                                    <div class="info">
+                                        <h3>mukesh ambani</h3>
+                                        <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta, est quas velit ipsum possimus deserunt cum. Dolorem provident nisi facilis quas velit ipsum possimus deserunt cum. Dolorem provident nisi facilis.</p>
+        </div>
+    </div>
+</div>
+ </section>
+<!-- review section ends -->
+<!-- service section starts -->
+<section class="service">
+<div class="box">
+    <img src="https://pngimg.com/d/free_shipping_PNG78.png" alt="">
+    <h3>free shipping</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil.</p>
+</div>
+
+<div class="box">
+    <img src="https://cdn-icons-png.flaticon.com/512/81/81566.png" alt="">
+    <h3>secure payment</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil.</p>
+</div>
+
+<div class="box">
+    <img src="https://cdn-icons-png.flaticon.com/512/7132/7132913.png" alt="">
+    <h3>free returns and exchanges</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil.</p>
+</div>
+
+<div class="box">
+    <img src="https://cdn-icons-png.flaticon.com/512/2020/2020773.png" alt="">
+    <h3>24/7 available</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil.</p>
+</div>
+</section>
+<!-- service section ends -->
+<!-- blog section starts -->
+<section class="blogs" id="blogs">
+    <div class="heading">
+        <h1>our blogs</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio nulla vitae doloribus.</p>
+      </div>
+<div class="swiper blog-slider">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide slide">
+            <div class="image">
+                <img src="https://t3.ftcdn.net/jpg/18/65/98/52/360_F_1865985211_BE2ZYN2Tn9OqufLzH9gBlQsufuCTI3Ho.jpg" alt="">
+                <div class="icons">
+                    <a href="#"><i class="fas fa-user"></i> by admin</a>
+                    <a href="#"><i class="fas fa-clock"></i> 29 aug, 2024</a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>blog title goes</h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti.</p>
+                <a href="#" class="btn">read more</a>
+            </div>
+        </div>
+
+        <div class="swiper-slide slide">
+            <div class="image">
+                <img src="https://www.easyveggieideas.com/images/made/images/uploads/blog-uploads/Woman_looking_in_mirror_825_550_int.jpg" alt="">
+                <div class="icons">
+                    <a href="#"><i class="fas fa-user"></i>  by admin</a>
+                    <a href="#"><i class="fas fa-clock"></i>  29 aug, 2024</a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>blog title goes</h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti.</p>
+                <a href="#" class="btn">read more</a>
+            </div>
+        </div>
+
+        <div class="swiper-slide slide">
+            <div class="image">
+                <img src="https://lh3.googleusercontent.com/IdMmDMmSkIuY7JasNNJzr1CTxZGS-UtfqDulRILzBa1oXMj_UlBMXMGa4i116Uex-Lzdv4dKz_Rbkix3_t70chHrYtwr2VvqdlzVs50=w360-rw" alt="">
+                <div class="icons">
+                    <a href="#"><i class="fas fa-user"></i> by admin</a>
+                    <a href="#"><i class="fas fa-clock"></i> 29 aug, 2024</a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>blog title goes</h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti.</p>
+                <a href="#" class="btn">read more</a>
+            </div>
+        </div>
+
+        <div class="swiper-slide slide">
+            <div class="image">
+                <img src="https://cdn.shopify.com/s/files/1/0095/0799/5714/files/K_Beauty_Blog_Post_large.jpg?v=1561737928" alt="">
+                <div class="icons">
+                    <a href="#"><i class="fas fa-user"></i> by admin</a>
+                    <a href="#"><i class="fas fa-clock"></i> 29 aug, 2024</a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>blog title goes</h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti.</p>
+                <a href="#" class="btn">read more</a>
+            </div>
+        </div>
+
+        <div class="swiper-slide slide">
+            <div class="image">
+                <img src="https://static.vecteezy.com/system/resources/previews/006/657/797/non_2x/young-asian-woman-vlogging-about-cosmetics-skin-care-items-products-on-table-with-her-video-camera-and-demonstrates-product-use-and-reviews-for-her-online-blog-channel-photo.jpg" alt="">
+                <div class="icons">
+                    <a href="#"><i class="fas fa-user"></i> by admin</a>
+                    <a href="#"><i class="fas fa-clock"></i> 29 aug, 2024</a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>blog title goes</h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti.</p>
+                <a href="#" class="btn">read more</a>
+            </div>
+        </div>
+
+        <div class="swiper-slide slide">
+            <div class="image">
+                <img src="https://www.zerowaste.com/wp-content/uploads/2021/11/shutterstock_2022511814-hero-1024x600.jpg" alt="">
+                <div class="icons">
+                    <a href="#"> <i class="fas fa-user"></i> by admin</a>
+                    <a href="#"> <i class="fas fa-clock"></i> 29 aug, 2024 </a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>blog title goes</h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti.</p>
+                <a href="#" class="btn">read more</a>
+            </div>
+        </div>
+
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>    
+</div>
+
+</section>
+<!-- blog section ends -->
+<!-- footer section starts -->
+<section class="footer">
+<div class="box-container">
+    <div class="box">
+        <h3>quick links</h3>
+        <a class="links" href="#home"><i class="fas fa-angle-right"></i> home</a>
+        <a class="links" href="#shop"><i class="fas fa-angle-right"></i> shop</a>
+        <a class="links" href="#gallery"><i class="fas fa-angle-right"></i> gallery</a>
+        <a class="links" href="#team"><i class="fas fa-angle-right"></i> team</a>
+        <a class="links" href="#arrivals"><i class="fas fa-angle-right"></i> arrivals</a>
+        <a class="links" href="#blogs"><i class="fas fa-angle-right"></i> blogs</a>
+    </div>
+
+<div class="box">
+    <h3>extra links</h3>
+    <a href="#" class="links"><i class="fas fa-angle-right"></i>my order</a>
+    <a href="#" class="links"><i class="fas fa-angle-right"></i>my favourite</a>
+    <a href="#" class="links"><i class="fas fa-angle-right"></i>my wishlist</a>
+    <a href="#" class="links"><i class="fas fa-angle-right"></i>my privacy policy</a>
+    <a href="#" class="links"><i class="fas fa-angle-right"></i>terms of use</a>
+</div>
+
+<div class="box">
+    <h3>contact info</h3>
+    <p> <i class="fas fa-phone"></i>+92 3083975030</p>
+    <p> <i class="fas fa-phone"></i>+92 3022478748</p>
+    <p> <i class="fas fa-envelope"></i>@javeria321gmail.com</p>
+    <p> <i class="fas fa-map"></i>karachi, pakistan - 4301</p>   
+    <div class="share">
+        <a href="#" class="fab fa-whatsapp"></a>
+        <a href="#" class="fab fa-instagram"></a>
+        <a href="#" class="fab fa-facebook-f"></a>
+        <a href="#" class="fab fa-twitter"></a>
+    </div>
+</div>
+
+<div class="box">
+    <h3>newsletter</h3>
+    <p>subscribe for more updates</p>
+    <form action="">
+        <input type="email" name="" placeholder="enter your email" id="" class="email">
+        <input type="button" value="subscribe" class="btn">
+    </form>
+    </div>
+</div>
+<div class="credit">| all rights reserved |</div>
+</section>
+<!-- footer section ends -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- cdn js  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js"></script>
+
+<!-- swiper js -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+ <script>
+let navbar = document.querySelector('.navbar');
+
+document.querySelector('#menu-btn').onclick = () =>{
+navbar.classList.toggle('active');
+}
+
+document.querySelector('#close-navbar').onclick = () =>{
+navbar.classList.remove('active');
+}
+
+let searchForm = document.querySelector('.search-form');
+
+document.querySelector('#search-btn').onclick = () =>{
+searchForm.classList.toggle('active');
+}
+
+window.onscroll = () =>{
+    navbar.classList.remove('active');
+    searchForm.classList.remove('active');
+}
+lightGallery(document.querySelector('.gallery .lightbox'));
+// swiper javascript
+let slides = document.querySelectorAll('.home .slide');
+let index = 0;
+
+function next() {
+    slides[index].classList.remove('active');
+    index =(index + 1) % slides.length;
+    slides[index].classList.add('active');
+}
+ 
+function prev() {
+    slides[index].classList.remove('active');
+    index =(index - 1 + slides.length) % slides.length;
+    slides[index].classList.add('active');
+};
+
+var swiper = new Swiper(".product-slider", {
+    loop: true,
+    grabeCursor: true,
+    spaceBetween: 20,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      breakpoints: {
+        0: {
+          slidesPerView: 1,
+         },
+        550: {
+          slidesPerView: 2,
+        },
+        850: {
+          slidesPerView: 3,
+        },
+        1200: {
+          slidesPerView: 4,
+
+        },
+      },
+    });
+
+    var swiper = new Swiper(".arrival-slider", {
+    loop: true,
+    grabeCursor: true,
+    spaceBetween: 20,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      breakpoints: {
+        0: {
+          slidesPerView: 1,
+         },
+        550: {
+          slidesPerView: 2,
+        },
+        850: {
+          slidesPerView: 3,
+        },
+        1200: {
+          slidesPerView: 4,
+
+        },
+      },
+    });
+
+    var swiper = new Swiper(".review-slider", {
+    loop: true,
+    grabeCursor: true,
+    spaceBetween: 20,
+      breakpoints: {
+        0: {
+          slidesPerView: 1,
+         },
+        768: {
+          slidesPerView: 2,
+        },
+        991: {
+          slidesPerView: 3,
+        },
+      },
+    });
+
+    var swiper = new Swiper(".blog-slider", {
+    loop: true,
+    grabeCursor: true,
+    spaceBetween: 20,
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      breakpoints: {
+        0: {
+          slidesPerView: 1,
+         },
+        650: {
+          slidesPerView: 2,
+        },
+        1200: {
+          slidesPerView: 3,
+        },
+      },
+    });
+ </script>
+</body>
+
+</html>
